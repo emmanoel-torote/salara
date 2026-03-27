@@ -45,10 +45,8 @@
       --rare-orange: #dd7447;
       --white:       #faf8f5;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--sand-light);
       color: var(--earth-dark);
@@ -57,11 +55,36 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
 
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      line-height: 1.1;
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* placeholder para fotos faltantes */
+    .ph {
+      background: linear-gradient(135deg, #c9b89f 0%, #a8967e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .ph::after {
+      content: attr(data-label);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 0 20px;
     }
 
     /* ── NAV ── */
@@ -69,41 +92,25 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 24px 52px;
+      padding: 20px 52px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: background 0.5s, padding 0.4s;
     }
     nav.scrolled {
-      background: rgba(26, 22, 17, 0.94);
+      background: rgba(26,22,17,0.95);
       backdrop-filter: blur(14px);
-      padding: 15px 52px;
+      padding: 14px 52px;
     }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .nav-salara {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 300;
-      letter-spacing: 0.22em;
-      color: var(--white);
-      text-transform: uppercase;
-    }
-    .nav-divider {
-      width: 1px;
-      height: 18px;
-      background: rgba(255,255,255,0.25);
-    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-brand img { height: 32px; width: auto; display: block; }
+    .nav-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.22); }
     .nav-rare {
       font-size: 9px;
       font-weight: 500;
       letter-spacing: 0.24em;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.45);
       text-transform: uppercase;
     }
     .nav-cta {
@@ -123,7 +130,7 @@
     .hero {
       position: relative;
       height: 100vh;
-      min-height: 600px;
+      min-height: 620px;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
@@ -134,18 +141,13 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      transition: opacity 1.6s ease;
+      transition: opacity 1.8s ease;
     }
     .hero-slide.active { opacity: 1; }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(26,22,17,0.88) 0%,
-        rgba(26,22,17,0.28) 55%,
-        rgba(26,22,17,0.08) 100%
-      );
+      background: linear-gradient(to top, rgba(26,22,17,0.9) 0%, rgba(26,22,17,0.3) 50%, rgba(26,22,17,0.08) 100%);
     }
     .hero-content {
       position: relative;
@@ -155,9 +157,7 @@
       transform: translateY(20px);
       animation: fadeUp 1s 0.7s ease forwards;
     }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .hero-eyebrow {
       font-size: 10px;
       font-weight: 500;
@@ -168,29 +168,28 @@
     }
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(52px, 7vw, 96px);
+      font-size: clamp(50px, 7vw, 94px);
       font-weight: 300;
       color: var(--white);
       line-height: 1.05;
       margin-bottom: 10px;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--sand);
+    .hero-title em { font-style: italic; color: var(--sand); }
+    .hero-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.58);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 10px;
     }
     .hero-place {
-      font-size: 12px;
-      letter-spacing: 0.24em;
+      font-size: 11px;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 40px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 38px;
     }
-    .hero-actions {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
     .btn-primary {
       background: var(--rare-orange);
       color: var(--white);
@@ -207,7 +206,7 @@
     }
     .btn-primary:hover { background: #c5603a; }
     .btn-ghost {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -216,46 +215,59 @@
       padding-bottom: 2px;
       transition: all 0.3s;
     }
-    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.6); }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.55); }
 
-    /* ── STAT BAR ── */
-    .stat-bar {
+    /* ── AMENITIES ICON GRID ── */
+    .amenities-bar {
       background: var(--night);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      padding: 56px 64px;
     }
-    .stat-item {
-      padding: 30px 24px;
-      border-right: 1px solid rgba(255,255,255,0.05);
-      text-align: center;
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
+    .amenities-bar-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 300;
+      font-size: clamp(28px, 3vw, 42px);
       color: var(--sand);
-      display: block;
-      line-height: 1;
+      font-weight: 300;
+      margin-bottom: 8px;
     }
-    .stat-label {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.32);
-      margin-top: 6px;
-      display: block;
+    .amenities-bar-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 48px;
+      max-width: 560px;
+      line-height: 1.7;
     }
-
-    /* ── EYEBROW UTIL ── */
-    .eyebrow {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.28em;
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+    }
+    .amenity-cell {
+      background: var(--night);
+      padding: 32px 24px;
+      text-align: center;
+      transition: background 0.3s;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .amenity-cell:hover { background: #241f18; }
+    .amenity-icon {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 14px;
+      opacity: 0.55;
+    }
+    .amenity-cell-name {
+      font-size: 11px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 16px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+    .amenity-cell-name strong {
       display: block;
+      color: var(--sand-deep);
+      font-weight: 400;
+      margin-bottom: 2px;
     }
 
     /* ── ARQUITECTURA ── */
@@ -264,17 +276,8 @@
       grid-template-columns: 1fr 1fr;
       min-height: 580px;
     }
-    .arq-img {
-      position: relative;
-      overflow: hidden;
-    }
-    .arq-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.9s ease;
-    }
+    .arq-img { position: relative; overflow: hidden; }
+    .arq-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s ease; }
     .arq-img:hover img { transform: scale(1.03); }
     .arq-text {
       background: var(--white);
@@ -283,20 +286,11 @@
       flex-direction: column;
       justify-content: center;
     }
-    .arq-text h2 {
-      font-size: clamp(36px, 3.8vw, 56px);
-      color: var(--earth-dark);
-      margin-bottom: 28px;
-    }
+    .arq-text h2 { font-size: clamp(34px, 3.5vw, 54px); color: var(--earth-dark); margin-bottom: 24px; }
     .arq-text h2 em { font-style: italic; }
-    .arq-text p {
-      font-size: 15px;
-      color: var(--earth);
-      max-width: 400px;
-      line-height: 1.8;
-    }
+    .arq-text p { font-size: 15px; color: var(--earth); max-width: 400px; line-height: 1.8; }
     .arq-credit {
-      margin-top: 36px;
+      margin-top: 34px;
       padding-top: 26px;
       border-top: 1px solid var(--sand-deep);
     }
@@ -308,11 +302,7 @@
       display: block;
       margin-bottom: 4px;
     }
-    .arq-credit span {
-      font-size: 12px;
-      color: var(--sage);
-      letter-spacing: 0.06em;
-    }
+    .arq-credit span { font-size: 12px; color: var(--sage); letter-spacing: 0.06em; }
 
     /* ── GALERÍA ── */
     .grid-gallery {
@@ -322,18 +312,9 @@
       gap: 3px;
       background: var(--sand-deep);
     }
-    .gg-item {
-      overflow: hidden;
-      position: relative;
-    }
+    .gg-item { overflow: hidden; position: relative; }
     .gg-item.tall { grid-row: 1 / 3; }
-    .gg-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.8s ease;
-    }
+    .gg-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
     .gg-item:hover img { transform: scale(1.04); }
     .gg-caption {
       position: absolute;
@@ -349,119 +330,63 @@
     }
     .gg-item:hover .gg-caption { opacity: 1; }
 
-    /* ── VIDA / MOMENTOS ── */
-    .vida {
+    /* ── LIFESTYLE COLLAGE ── */
+    .collage {
       background: var(--sand-light);
       padding: 96px 64px;
-      text-align: center;
     }
-    .vida h2 {
-      font-size: clamp(38px, 4.5vw, 62px);
-      color: var(--earth-dark);
-      margin-bottom: 12px;
-    }
-    .vida h2 em { font-style: italic; }
-    .vida-sub {
-      font-size: 15px;
-      color: var(--earth);
-      max-width: 360px;
-      margin: 0 auto 72px;
-    }
-    .momentos {
+    .collage-header {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+    .collage-header h2 { font-size: clamp(36px, 4vw, 58px); color: var(--earth-dark); }
+    .collage-header h2 em { font-style: italic; }
+    .collage-header p { font-size: 15px; color: var(--earth); line-height: 1.78; }
+    .collage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 3px;
       background: var(--sand-deep);
-      text-align: left;
     }
-    .momento {
-      background: var(--white);
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-    .momento:hover { background: var(--sand-light); }
-    .momento-img {
-      height: 220px;
-      overflow: hidden;
-    }
-    .momento-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s ease;
-    }
-    .momento:hover .momento-img img { transform: scale(1.04); }
-    .momento-body {
-      padding: 28px 30px 34px;
-    }
-    .momento-label {
+    .col-item { overflow: hidden; position: relative; }
+    .col-item.wide { grid-column: span 2; }
+    .col-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .col-item:hover img { transform: scale(1.04); }
+    .col-label {
+      position: absolute;
+      bottom: 16px; left: 18px;
       font-size: 10px;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 8px;
-      display: block;
-    }
-    .momento-body h3 {
-      font-size: 20px;
-      color: var(--earth-dark);
-      margin-bottom: 8px;
-    }
-    .momento-body p {
-      font-size: 13px;
-      color: var(--earth);
-      line-height: 1.72;
+      color: rgba(255,255,255,0.7);
+      background: rgba(26,22,17,0.45);
+      padding: 5px 10px;
     }
 
-    /* ── RENTA / ROI ── */
-    .renta {
+    /* ── RENTAL PROGRAM ── */
+    .rental {
       background: var(--night);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 520px;
+      min-height: 540px;
     }
-    .renta-img {
-      position: relative;
-      overflow: hidden;
-    }
-    .renta-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .renta-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(26,22,17,0.2);
-    }
-    .renta-text {
+    .rental-img { position: relative; overflow: hidden; }
+    .rental-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .rental-img::after { content: ''; position: absolute; inset: 0; background: rgba(26,22,17,0.22); }
+    .rental-text {
       padding: 88px 72px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .renta-text h2 {
-      font-size: clamp(34px, 3.5vw, 52px);
-      color: var(--sand);
-      margin-bottom: 24px;
-    }
-    .renta-text h2 em { font-style: italic; }
-    .renta-text p {
-      font-size: 15px;
-      color: rgba(232,223,210,0.6);
-      max-width: 400px;
-      line-height: 1.78;
-      margin-bottom: 14px;
-    }
-    .renta-pills {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin: 20px 0 24px;
-    }
+    .rental-text h2 { font-size: clamp(32px, 3.5vw, 50px); color: var(--sand); margin-bottom: 20px; }
+    .rental-text h2 em { font-style: italic; }
+    .rental-text p { font-size: 15px; color: rgba(232,223,210,0.58); max-width: 400px; line-height: 1.8; margin-bottom: 14px; }
+    .rental-pills { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
     .pill {
       font-size: 10px;
       letter-spacing: 0.1em;
@@ -471,55 +396,25 @@
       border: 1px solid rgba(125,140,114,0.2);
       padding: 6px 13px;
     }
-    .renta-nota {
+    .rental-nota {
       font-size: 11px;
-      color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.2);
       max-width: 360px;
       line-height: 1.7;
-      margin-top: 16px;
+      margin-top: 18px;
       padding-top: 18px;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     /* ── PROPIEDADES ── */
-    .propiedades {
-      background: var(--earth-dark);
-      padding: 100px 64px;
-    }
-    .prop-header {
-      margin-bottom: 56px;
-    }
-    .prop-header h2 {
-      font-size: clamp(38px, 4.5vw, 64px);
-      color: var(--sand);
-      margin-bottom: 8px;
-    }
-    .prop-header p {
-      font-size: 13px;
-      color: rgba(232,223,210,0.32);
-      letter-spacing: 0.05em;
-    }
-    .listings {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-    }
-    .listing {
-      background: #241f18;
-      overflow: hidden;
-    }
-    .listing-imgs {
-      position: relative;
-      height: 320px;
-      overflow: hidden;
-    }
-    .listing-imgs img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s ease;
-    }
+    .propiedades { background: var(--earth-dark); padding: 100px 64px; }
+    .prop-header { margin-bottom: 56px; }
+    .prop-header h2 { font-size: clamp(36px, 4vw, 60px); color: var(--sand); margin-bottom: 8px; }
+    .prop-header p { font-size: 13px; color: rgba(232,223,210,0.3); letter-spacing: 0.05em; }
+    .listings { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .listing { background: #241f18; overflow: hidden; }
+    .listing-imgs { position: relative; height: 320px; overflow: hidden; }
+    .listing-imgs img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
     .listing:hover .listing-imgs img { transform: scale(1.04); }
     .listing-badge {
       position: absolute;
@@ -532,29 +427,10 @@
       text-transform: uppercase;
       padding: 6px 13px;
     }
-    .listing-body {
-      padding: 36px 40px 44px;
-    }
-    .listing-mls {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.22);
-      margin-bottom: 8px;
-    }
-    .listing-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 300;
-      color: var(--sand);
-      margin-bottom: 4px;
-    }
-    .listing-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      color: var(--rare-orange);
-      margin-bottom: 28px;
-    }
+    .listing-body { padding: 36px 40px 44px; }
+    .listing-mls { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 8px; }
+    .listing-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--sand); margin-bottom: 4px; }
+    .listing-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--rare-orange); margin-bottom: 28px; }
     .listing-specs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -565,27 +441,9 @@
       margin-bottom: 24px;
       text-align: center;
     }
-    .spec-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      color: var(--sand-light);
-      display: block;
-      line-height: 1;
-    }
-    .spec-key {
-      font-size: 9px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.26);
-      margin-top: 4px;
-      display: block;
-    }
-    .listing-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 28px;
-    }
+    .spec-val { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--sand-light); display: block; line-height: 1; }
+    .spec-key { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.26); margin-top: 4px; display: block; }
+    .listing-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
     .tag {
       font-size: 10px;
       letter-spacing: 0.1em;
@@ -609,18 +467,10 @@
       cursor: pointer;
       background: transparent;
     }
-    .listing-cta:hover {
-      background: var(--rare-orange);
-      border-color: var(--rare-orange);
-      color: var(--white);
-    }
+    .listing-cta:hover { background: var(--rare-orange); border-color: var(--rare-orange); color: var(--white); }
 
     /* ── UBICACIÓN ── */
-    .ubicacion {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 540px;
-    }
+    .ubicacion { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
     .ubic-text {
       background: var(--sand);
       padding: 88px 72px;
@@ -628,53 +478,16 @@
       flex-direction: column;
       justify-content: center;
     }
-    .ubic-text h2 {
-      font-size: clamp(34px, 3.5vw, 52px);
-      color: var(--earth-dark);
-      margin-bottom: 24px;
-    }
-    .ubic-text p {
-      font-size: 15px;
-      color: #5a4a38;
-      max-width: 400px;
-      line-height: 1.78;
-      margin-bottom: 36px;
-    }
-    .distancias {
-      display: flex;
-      flex-direction: column;
-      gap: 13px;
-    }
-    .dist-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 13px;
-      color: var(--earth);
-    }
-    .dist-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--sage);
-      flex-shrink: 0;
-    }
-    .ubic-img {
-      overflow: hidden;
-    }
-    .ubic-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .ubic-text h2 { font-size: clamp(32px, 3.5vw, 50px); color: var(--earth-dark); margin-bottom: 22px; }
+    .ubic-text p { font-size: 15px; color: #5a4a38; max-width: 400px; line-height: 1.78; margin-bottom: 34px; }
+    .distancias { display: flex; flex-direction: column; gap: 13px; }
+    .dist-item { display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--earth); }
+    .dist-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+    .ubic-img { overflow: hidden; }
+    .ubic-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ── CONTACTO ── */
-    .contacto {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 600px;
-    }
+    .contacto { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
     .contacto-side {
       background: var(--night);
       padding: 88px 72px;
@@ -682,81 +495,20 @@
       flex-direction: column;
       justify-content: center;
     }
-    .contacto-side h2 {
-      font-size: clamp(36px, 4vw, 54px);
-      color: var(--sand);
-      margin-bottom: 16px;
-    }
+    .contacto-side h2 { font-size: clamp(34px, 4vw, 52px); color: var(--sand); margin-bottom: 16px; }
     .contacto-side h2 em { font-style: italic; }
-    .contacto-side p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.4);
-      max-width: 340px;
-      line-height: 1.78;
-      margin-bottom: 40px;
-    }
-    .agent-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .agent-img {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid rgba(232,223,210,0.14);
-      flex-shrink: 0;
-    }
-    .agent-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: var(--sand);
-      display: block;
-      line-height: 1.2;
-    }
-    .agent-role {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.28);
-    }
-    .agent-tel {
-      font-size: 13px;
-      color: var(--sage-light);
-      text-decoration: none;
-      display: block;
-      margin-top: 3px;
-      transition: color 0.3s;
-    }
+    .contacto-side > p { font-size: 14px; color: rgba(255,255,255,0.38); max-width: 340px; line-height: 1.78; margin-bottom: 40px; }
+    .agent-row { display: flex; align-items: center; gap: 16px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .agent-img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(232,223,210,0.14); flex-shrink: 0; }
+    .agent-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--sand); display: block; line-height: 1.2; }
+    .agent-role { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+    .agent-tel { font-size: 13px; color: var(--sage-light); text-decoration: none; display: block; margin-top: 3px; transition: color 0.3s; }
     .agent-tel:hover { color: var(--sand); }
-    .contacto-form {
-      background: var(--white);
-      padding: 88px 72px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+    .contacto-form { background: var(--white); padding: 88px 72px; display: flex; flex-direction: column; justify-content: center; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .fg { margin-bottom: 16px; }
-    .fg label {
-      display: block;
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--earth);
-      margin-bottom: 7px;
-    }
-    .fg input,
-    .fg select,
-    .fg textarea {
+    .fg label { display: block; font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--earth); margin-bottom: 7px; }
+    .fg input, .fg select, .fg textarea {
       width: 100%;
       background: var(--sand-light);
       border: 1px solid var(--sand-deep);
@@ -770,9 +522,7 @@
       -webkit-appearance: none;
       border-radius: 0;
     }
-    .fg input:focus,
-    .fg select:focus,
-    .fg textarea:focus { border-color: var(--sage); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--sage); }
     .fg textarea { resize: vertical; min-height: 80px; }
     .form-btn {
       width: 100%;
@@ -791,22 +541,9 @@
     }
     .form-btn:hover { background: #c5603a; }
     .form-btn:disabled { background: var(--sage); cursor: not-allowed; }
-    .form-legal {
-      font-size: 10px;
-      color: #9a8878;
-      margin-top: 12px;
-      line-height: 1.65;
-    }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 48px 0;
-    }
-    .form-success h3 {
-      font-size: 30px;
-      color: var(--earth-dark);
-      margin-bottom: 10px;
-    }
+    .form-legal { font-size: 10px; color: #9a8878; margin-top: 12px; line-height: 1.65; }
+    .form-success { display: none; text-align: center; padding: 48px 0; }
+    .form-success h3 { font-size: 30px; color: var(--earth-dark); margin-bottom: 10px; }
     .form-success p { font-size: 14px; color: var(--earth); }
 
     /* ── FOOTER ── */
@@ -820,34 +557,13 @@
       flex-wrap: wrap;
       border-top: 1px solid rgba(255,255,255,0.04);
     }
-    .footer-salara {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sand);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .footer-sub {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.24);
-      display: block;
-    }
-    .footer-right {
-      font-size: 11px;
-      color: rgba(255,255,255,0.18);
-      text-align: right;
-      line-height: 1.9;
-    }
+    .footer-sub { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.24); display: block; margin-top: 6px; }
+    .footer-right { font-size: 11px; color: rgba(255,255,255,0.18); text-align: right; line-height: 1.9; }
 
     /* ── STICKY ── */
     .sticky {
       position: fixed;
-      bottom: 26px;
-      right: 26px;
+      bottom: 26px; right: 26px;
       z-index: 99;
       background: var(--rare-orange);
       color: var(--white);
@@ -865,35 +581,29 @@
     .sticky:hover { background: #c5603a; }
 
     /* ── REVEAL ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav, nav.scrolled { padding: 16px 22px; }
+      nav, nav.scrolled { padding: 14px 20px; }
       .hero-content { padding: 0 22px 60px; }
-      .stat-bar { grid-template-columns: repeat(2, 1fr); }
-      .arq, .renta, .ubicacion, .contacto { grid-template-columns: 1fr; }
-      .arq-text, .renta-text, .ubic-text,
-      .contacto-side, .contacto-form { padding: 60px 28px; }
-      .arq-img { min-height: 300px; order: -1; }
-      .renta-img { min-height: 300px; order: -1; }
-      .ubic-img { min-height: 280px; }
-      .grid-gallery {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(3, 200px);
-      }
+      .amenities-bar { padding: 48px 22px; }
+      .amenities-grid { grid-template-columns: repeat(3, 1fr); }
+      .arq, .rental, .ubicacion, .contacto { grid-template-columns: 1fr; }
+      .arq-text, .rental-text, .ubic-text, .contacto-side, .contacto-form { padding: 56px 24px; }
+      .arq-img, .rental-img { min-height: 280px; order: -1; }
+      .ubic-img { min-height: 260px; }
+      .grid-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 200px); }
       .gg-item.tall { grid-row: auto; }
-      .momentos { grid-template-columns: 1fr; }
-      .vida { padding: 64px 22px; }
+      .collage { padding: 64px 22px; }
+      .collage-header { grid-template-columns: 1fr; gap: 24px; }
+      .collage-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 200px); }
+      .col-item.wide { grid-column: span 2; }
       .propiedades { padding: 64px 22px; }
       .listings { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      footer { padding: 40px 22px; flex-direction: column; align-items: flex-start; }
+      footer { padding: 36px 22px; flex-direction: column; align-items: flex-start; }
       .footer-right { text-align: left; }
     }
   </style>
@@ -903,7 +613,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-brand">
-    <img src="./images/salara-logo.png" alt="Salara" style="height:36px; width:auto; display:block;">
+    <img src="./images/salara-logo.png" alt="Salara">
     <span class="nav-divider"></span>
     <span class="nav-rare">Ricardo Amigo Real Estate</span>
   </div>
@@ -912,14 +622,15 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-slide active" style="background-image: url('https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407180011009756000000-o.jpg')"></div>
-  <div class="hero-slide" style="background-image: url('https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407174438871853000000-o.jpg')"></div>
-  <div class="hero-slide" style="background-image: url('https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407180026603532000000-o.jpg')"></div>
+  <div class="hero-slide active" style="background-image:url('https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407180011009756000000-o.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407174438871853000000-o.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407180026603532000000-o.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Pescadero · Baja California Sur</p>
     <h1 class="hero-title">Una visión conectada<br><em>a la tierra.</em></h1>
-    <p class="hero-place">Salara &mdash; Pescadero, Baja California Sur</p>
+    <p class="hero-desc">Una colección de diez residencias de diseño con 3 recámaras, interiores curados y completamente amuebladas — complementadas por un hotel boutique de 17 habitaciones con suites de vista al mar.</p>
+    <p class="hero-place">Salara &mdash; Dos residencias disponibles</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#contacto" onclick="track('hero_primary')">Quiero conocerlas</a>
       <a class="btn-ghost" href="#propiedades">Ver propiedades</a>
@@ -927,25 +638,87 @@
   </div>
 </section>
 
-<!-- STAT BAR -->
-<div class="stat-bar">
-  <div class="stat-item">
-    <span class="stat-num">10</span>
-    <span class="stat-label">Residencias de diseño</span>
+<!-- AMENITIES ICON GRID -->
+<section class="amenities-bar reveal">
+  <h2 class="amenities-bar-title">Resort life. Propiedad tuya.</h2>
+  <p class="amenities-bar-sub">Salara es una comunidad que ya existe — con amenidades de hospitalidad de primer nivel disponibles desde el primer día.</p>
+  <div class="amenities-grid">
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="10" stroke="#a8b59e" stroke-width="1.2"/>
+        <path d="M10 20 Q16 13 22 20" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Pool privado</strong>en cada residencia</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="12" width="20" height="12" rx="1" stroke="#a8b59e" stroke-width="1.2"/>
+        <path d="M11 12 V9 Q16 6 21 9 V12" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Hotel boutique</strong>17 habitaciones</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 24 Q16 8 24 24" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+        <line x1="6" y1="24" x2="26" y2="24" stroke="#a8b59e" stroke-width="1.2"/>
+        <circle cx="16" cy="10" r="2" stroke="#a8b59e" stroke-width="1.2"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Beach club</strong>acceso exclusivo</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="7" y="18" width="18" height="6" rx="1" stroke="#a8b59e" stroke-width="1.2"/>
+        <path d="M10 18 V14 Q16 10 22 14 V18" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+        <line x1="16" y1="10" x2="16" y2="14" stroke="#a8b59e" stroke-width="1.2"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Bar & lounge</strong>área social</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="20" rx="8" ry="3" stroke="#a8b59e" stroke-width="1.2"/>
+        <circle cx="16" cy="11" r="5" stroke="#a8b59e" stroke-width="1.2"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Spa & temazcal</strong>bienestar</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 22 C10 16 14 14 16 14 C18 14 22 16 24 22" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+        <circle cx="11" cy="18" r="2.5" stroke="#a8b59e" stroke-width="1.2"/>
+        <circle cx="21" cy="18" r="2.5" stroke="#a8b59e" stroke-width="1.2"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Petanca</strong>cancha de arena</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10 L25 10 L22 22 L10 22 Z" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+        <line x1="16" y1="10" x2="16" y2="22" stroke="#a8b59e" stroke-width="1.2"/>
+        <line x1="7" y1="16" x2="25" y2="16" stroke="#a8b59e" stroke-width="1.2"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Dos restaurantes</strong>farm to table</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="9" stroke="#a8b59e" stroke-width="1.2"/>
+        <polyline points="16,10 16,16 20,19" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Concierge</strong>servicio 24/7</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="8" width="16" height="16" rx="2" stroke="#a8b59e" stroke-width="1.2"/>
+        <line x1="12" y1="8" x2="12" y2="24" stroke="#a8b59e" stroke-width="1.2"/>
+        <line x1="8" y1="14" x2="24" y2="14" stroke="#a8b59e" stroke-width="1.2"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Property mgmt</strong>profesional on-site</p>
+    </div>
+    <div class="amenity-cell">
+      <svg class="amenity-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 6 L18.5 12 L25 12 L20 16.5 L22 23 L16 19 L10 23 L12 16.5 L7 12 L13.5 12 Z" stroke="#a8b59e" stroke-width="1.2" fill="none"/>
+      </svg>
+      <p class="amenity-cell-name"><strong>Seguridad</strong>acceso controlado</p>
+    </div>
   </div>
-  <div class="stat-item">
-    <span class="stat-num">17</span>
-    <span class="stat-label">Habitaciones boutique</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">2024</span>
-    <span class="stat-label">Terminado</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">2</span>
-    <span class="stat-label">Disponibles</span>
-  </div>
-</div>
+</section>
 
 <!-- ARQUITECTURA -->
 <div class="arq">
@@ -955,10 +728,10 @@
   <div class="arq-text reveal">
     <span class="eyebrow">Casas de arena</span>
     <h2>Una arquitectura<br><em>que respira.</em></h2>
-    <p>Salara nació del paisaje de Pescadero — no contra él. Muros de tierra apisonada, madera oscura, vegetación nativa. Un desarrollo que ya vive, con comunidad formada y un ritmo cotidiano que se siente desde el primer día.</p>
+    <p>Salara nació del paisaje de Pescadero — no contra él. Muros de tierra apisonada, madera oscura, vegetación nativa. Un desarrollo terminado, con comunidad formada y un ritmo cotidiano que se siente desde el primer día.</p>
     <div class="arq-credit">
       <strong>Héctor Barroso</strong>
-      <span>Arquitectura contemporánea mexicana · Pescadero, BCS</span>
+      <span>Taller Héctor Barroso · Arquitectura contemporánea mexicana</span>
     </div>
   </div>
 </div>
@@ -982,67 +755,66 @@
     <span class="gg-caption">Terraza</span>
   </div>
   <div class="gg-item">
-    <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407181059090406000000-o.jpg" alt="Jardín">
+    <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407181059090406000000-o.jpg" alt="Jardín nativo">
     <span class="gg-caption">Jardín nativo</span>
   </div>
 </div>
 
-<!-- VIDA -->
-<section class="vida">
-  <span class="eyebrow reveal">La vida aquí</span>
-  <h2 class="reveal">Los días tienen<br><em>otro ritmo.</em></h2>
-  <p class="vida-sub reveal">Sin explicarlo demasiado.</p>
-
-  <div class="momentos reveal">
-    <div class="momento">
-      <div class="momento-img">
-        <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407181047078715000000-o.jpg" alt="El Palmar">
-      </div>
-      <div class="momento-body">
-        <span class="momento-label">El Palmar</span>
-        <h3>Piedra. Palmeras. Silencio.</h3>
-        <p>El corazón de Salara. Un espejo de agua sobre arena dorada, rodeado de vegetación nativa. El lugar donde no pasa nada — y todo pasa.</p>
-      </div>
+<!-- LIFESTYLE COLLAGE -->
+<section class="collage">
+  <div class="collage-header reveal">
+    <h2>Los días tienen<br><em>otro ritmo.</em></h2>
+    <p>Where sun soaked days meet kindhearted care and easy living. Una experiencia que ya sucede — cada día, para quienes ya son parte de Salara.</p>
+  </div>
+  <div class="collage-grid reveal">
+    <div class="col-item wide">
+      <!-- PLACEHOLDER: reemplazar con foto lifestyle de Salara (pool, atardecer, social) -->
+      <div class="ph" data-label="Foto lifestyle · pool o atardecer"></div>
+      <span class="col-label">El Palmar</span>
     </div>
-    <div class="momento">
-      <div class="momento-img">
-        <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407181050287171000000-o.jpg" alt="Alberca central">
-      </div>
-      <div class="momento-body">
-        <span class="momento-label">Alberca central</span>
-        <h3>La tarde en común.</h3>
-        <p>Camastros, niños, conversaciones sin prisa. El espacio compartido donde la comunidad de Salara cobra vida.</p>
-      </div>
+    <div class="col-item">
+      <!-- PLACEHOLDER: reemplazar con foto beach club -->
+      <div class="ph" data-label="Foto beach club"></div>
+      <span class="col-label">Beach club</span>
     </div>
-    <div class="momento">
-      <div class="momento-img">
-        <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407174628089108000000-o.jpg" alt="Pool privado">
-      </div>
-      <div class="momento-body">
-        <span class="momento-label">Pool privado</span>
-        <h3>A las seis de la tarde.</h3>
-        <p>Cada residencia tiene su propio plunge pool. Cuando la luz de Baja pega de lado y el día se termina sin que te des cuenta.</p>
-      </div>
+    <div class="col-item">
+      <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407181047078715000000-o.jpg" alt="Salara community">
+      <span class="col-label">Comunidad</span>
+    </div>
+    <div class="col-item">
+      <!-- PLACEHOLDER: reemplazar con foto spa/temazcal -->
+      <div class="ph" data-label="Foto spa o temazcal"></div>
+      <span class="col-label">Spa & temazcal</span>
+    </div>
+    <div class="col-item wide">
+      <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407181050287171000000-o.jpg" alt="Alberca central">
+      <span class="col-label">Alberca central</span>
+    </div>
+    <div class="col-item">
+      <!-- PLACEHOLDER: reemplazar con foto restaurante -->
+      <div class="ph" data-label="Foto restaurante"></div>
+      <span class="col-label">Restaurante</span>
     </div>
   </div>
 </section>
 
-<!-- RENTA / ROI -->
-<div class="renta">
-  <div class="renta-img">
+<!-- RENTAL PROGRAM -->
+<div class="rental">
+  <div class="rental-img">
     <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20250407180034000502000000-o.jpg" alt="Salara renta">
   </div>
-  <div class="renta-text reveal">
-    <span class="eyebrow" style="color: var(--sage-light);">Cuando no estés</span>
+  <div class="rental-text reveal">
+    <span class="eyebrow" style="color:var(--sage-light);">Rental program</span>
     <h2>Baja sigue<br><em>siendo Baja.</em></h2>
-    <p>El corredor Pescadero–Todos Santos es uno de los destinos de renta vacacional de mayor crecimiento en México. Una propiedad de este nivel de diseño — terminada, en un desarrollo que ya opera — es exactamente lo que el viajero de alto nivel está buscando y difícilmente encuentra.</p>
-    <div class="renta-pills">
+    <p>El corredor Pescadero–Todos Santos es uno de los destinos de renta vacacional de mayor crecimiento en México. Una propiedad de este nivel — terminada, con arquitectura de autor, en un resort que opera — genera sola.</p>
+    <div class="rental-pills">
       <span class="pill">Alta demanda vacacional</span>
       <span class="pill">Arquitectura de autor</span>
       <span class="pill">Resort operando</span>
+      <span class="pill">Property mgmt on-site</span>
     </div>
-    <p style="font-size:14px; color: rgba(232,223,210,0.48);">Puedes gestionarla tú o con el property manager de tu elección. La infraestructura ya existe.</p>
-    <p class="renta-nota">La decisión de rentar es completamente tuya. Salara no opera como programa de renta obligatorio.</p>
+    <p style="font-size:14px; color:rgba(232,223,210,0.45);">Deja tu casa y deja que Salara se encargue de todo — para que otros vivan aunque sea un pedazo de esta comunidad.</p>
+    <p class="rental-nota">La participación en el programa de renta es opcional. Puedes gestionar tu propiedad de forma independiente con el property manager de tu elección.</p>
   </div>
 </div>
 
@@ -1052,7 +824,6 @@
     <h2>Dos residencias.<br>Una oportunidad.</h2>
     <p>Desarrollo terminado. La comunidad ya existe. Solo quedan dos.</p>
   </div>
-
   <div class="listings">
     <!-- SALARA 06 -->
     <div class="listing reveal">
@@ -1065,18 +836,9 @@
         <h3 class="listing-name">Salara 06</h3>
         <p class="listing-price">$1,440,000 USD</p>
         <div class="listing-specs">
-          <div>
-            <span class="spec-val">3</span>
-            <span class="spec-key">Recámaras</span>
-          </div>
-          <div>
-            <span class="spec-val">216</span>
-            <span class="spec-key">m² construidos</span>
-          </div>
-          <div>
-            <span class="spec-val">1,426</span>
-            <span class="spec-key">m² de lote</span>
-          </div>
+          <div><span class="spec-val">3</span><span class="spec-key">Recámaras</span></div>
+          <div><span class="spec-val">216</span><span class="spec-key">m² construidos</span></div>
+          <div><span class="spec-val">1,426</span><span class="spec-key">m² de lote</span></div>
         </div>
         <div class="listing-tags">
           <span class="tag">Pool privado</span>
@@ -1088,7 +850,6 @@
         <a class="listing-cta" href="#contacto" onclick="track('cta_06')">Solicitar información</a>
       </div>
     </div>
-
     <!-- SALARA 04 -->
     <div class="listing reveal">
       <div class="listing-imgs">
@@ -1100,18 +861,9 @@
         <h3 class="listing-name">Salara 04</h3>
         <p class="listing-price">$1,549,000 USD</p>
         <div class="listing-specs">
-          <div>
-            <span class="spec-val">3</span>
-            <span class="spec-key">Recámaras</span>
-          </div>
-          <div>
-            <span class="spec-val">216</span>
-            <span class="spec-key">m² construidos</span>
-          </div>
-          <div>
-            <span class="spec-val">1,478</span>
-            <span class="spec-key">m² de lote</span>
-          </div>
+          <div><span class="spec-val">3</span><span class="spec-key">Recámaras</span></div>
+          <div><span class="spec-val">216</span><span class="spec-key">m² construidos</span></div>
+          <div><span class="spec-val">1,478</span><span class="spec-key">m² de lote</span></div>
         </div>
         <div class="listing-tags">
           <span class="tag">Pool privado</span>
@@ -1147,7 +899,7 @@
 <!-- CONTACTO -->
 <div class="contacto" id="contacto">
   <div class="contacto-side">
-    <span class="eyebrow" style="color: var(--sage-light);">Hablemos</span>
+    <span class="eyebrow" style="color:var(--sage-light);">Hablemos</span>
     <h2>¿Tiene sentido<br><em>para ti?</em></h2>
     <p>Aaron tiene los números, las fotos y las respuestas. La conversación no compromete nada.</p>
     <div class="agent-row">
@@ -1204,7 +956,7 @@
 <!-- FOOTER -->
 <footer>
   <div>
-    <img src="./images/salara-logo.png" alt="Salara" style="height:28px; width:auto; display:block; margin-bottom:8px; opacity:0.85;">
+    <img src="./images/salara-logo.png" alt="Salara" style="height:26px;width:auto;display:block;margin-bottom:8px;opacity:0.8;">
     <span class="footer-sub">Comercializado por Ricardo Amigo Real Estate</span>
   </div>
   <div class="footer-right">
@@ -1234,7 +986,7 @@
     slides[cur].classList.remove('active');
     cur = (cur + 1) % slides.length;
     slides[cur].classList.add('active');
-  }, 5000);
+  }, 5500);
 
   // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
@@ -1253,7 +1005,7 @@
     if (typeof gtag !== 'undefined') gtag('event', name);
   }
 
-  // Form submit
+  // Form
   async function enviar() {
     const btn    = document.getElementById('btnSubmit');
     const nombre = document.getElementById('nombre').value.trim();
@@ -1266,21 +1018,21 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          access_key:  'REEMPLAZAR_WEB3FORMS_KEY',
-          subject:     '[SALARA] Nuevo lead — ' + nombre,
-          from_name:   'Salara Landing',
+          access_key: 'REEMPLAZAR_WEB3FORMS_KEY',
+          subject:    '[SALARA] Nuevo lead — ' + nombre,
+          from_name:  'Salara Landing',
           nombre,
           email,
-          ciudad:      document.getElementById('ciudad').value.trim(),
-          telefono:    document.getElementById('tel').value.trim(),
-          propiedad:   document.getElementById('interes').value || 'Ambas',
-          mensaje:     document.getElementById('mensaje').value.trim()
+          ciudad:     document.getElementById('ciudad').value.trim(),
+          telefono:   document.getElementById('tel').value.trim(),
+          propiedad:  document.getElementById('interes').value || 'Ambas',
+          mensaje:    document.getElementById('mensaje').value.trim()
         })
       });
       const data = await res.json();
       if (data.success) {
-        document.getElementById('theForm').style.display  = 'none';
-        document.getElementById('formOk').style.display   = 'block';
+        document.getElementById('theForm').style.display = 'none';
+        document.getElementById('formOk').style.display  = 'block';
         track('form_success');
         if (typeof fbq !== 'undefined') fbq('track', 'CompleteRegistration');
       } else { throw new Error(); }
