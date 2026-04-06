@@ -67,26 +67,6 @@
       display: block;
     }
 
-    /* placeholder para fotos faltantes */
-    .ph {
-      background: linear-gradient(135deg, #c9b89f 0%, #a8967e 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .ph::after {
-      content: attr(data-label);
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 0 20px;
-    }
-
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -347,8 +327,8 @@
     .collage-header p { font-size: 15px; color: var(--earth); line-height: 1.78; }
     .collage-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 240px 240px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
       gap: 3px;
       background: var(--sand-deep);
     }
@@ -768,32 +748,24 @@
   </div>
   <div class="collage-grid reveal">
     <div class="col-item wide">
-      <!-- PLACEHOLDER: reemplazar con foto lifestyle de Salara (pool, atardecer, social) -->
-      <div class="ph" data-label="Foto lifestyle · pool o atardecer"></div>
-      <span class="col-label">El Palmar</span>
+      <img src="./images/patio-cielo.jpg" alt="Salara exterior">
+      <span class="col-label">Salara</span>
     </div>
     <div class="col-item">
-      <!-- PLACEHOLDER: reemplazar con foto beach club -->
-      <div class="ph" data-label="Foto beach club"></div>
-      <span class="col-label">Beach club</span>
+      <img src="./images/terraza-cactus.jpg" alt="Terraza">
+      <span class="col-label">Terraza</span>
     </div>
     <div class="col-item">
-      <img src="./images/terraza-cactus.jpg" alt="Salara community">
-      <span class="col-label">Comunidad</span>
-    </div>
-    <div class="col-item">
-      <!-- PLACEHOLDER: reemplazar con foto spa/temazcal -->
-      <div class="ph" data-label="Foto spa o temazcal"></div>
-      <span class="col-label">Spa & temazcal</span>
+      <img src="./images/corredor-techado.jpg" alt="Arquitectura">
+      <span class="col-label">Arquitectura</span>
     </div>
     <div class="col-item wide">
-      <img src="./images/patio-cielo.jpg" alt="Alberca central">
-      <span class="col-label">Alberca central</span>
+      <img src="./images/patio-arbol.jpg" alt="Jardín">
+      <span class="col-label">Jardín nativo</span>
     </div>
     <div class="col-item">
-      <!-- PLACEHOLDER: reemplazar con foto restaurante -->
-      <div class="ph" data-label="Foto restaurante"></div>
-      <span class="col-label">Restaurante</span>
+      <img src="./images/recamara-principal.jpg" alt="Recámara">
+      <span class="col-label">Interiores</span>
     </div>
   </div>
 </section>
