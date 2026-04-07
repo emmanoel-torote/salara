@@ -312,43 +312,6 @@
     }
     .gg-item:hover .gg-caption { opacity: 1; }
 
-    /* ── LIFESTYLE COLLAGE ── */
-    .collage {
-      background: var(--sand-light);
-      padding: 96px 64px;
-    }
-    .collage-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: end;
-      margin-bottom: 56px;
-    }
-    .collage-header h2 { font-size: clamp(36px, 4vw, 58px); color: var(--earth-dark); }
-    .collage-header h2 em { font-style: italic; }
-    .collage-header p { font-size: 15px; color: var(--earth); line-height: 1.78; }
-    .collage-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: 320px 320px;
-      gap: 3px;
-      background: var(--sand-deep);
-    }
-    .col-item { overflow: hidden; position: relative; }
-    .col-item.tall { grid-row: span 2; }
-    .col-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
-    .col-item:hover img { transform: scale(1.04); }
-    .col-label {
-      position: absolute;
-      bottom: 16px; left: 18px;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      background: rgba(26,22,17,0.45);
-      padding: 5px 10px;
-    }
-
     /* ── RENTAL PROGRAM ── */
     .rental {
       background: var(--night);
@@ -579,10 +542,6 @@
       .grid-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 200px); }
       .gg-item.xtall { grid-row: span 2; }
       .gg-item.wide  { grid-column: span 2; }
-      .collage { padding: 64px 22px; }
-      .collage-header { grid-template-columns: 1fr; gap: 24px; }
-      .collage-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 280px 280px; }
-      .col-item.tall { grid-row: span 2; }
       .propiedades { padding: 64px 22px; }
       .listings { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -605,9 +564,9 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-slide active" style="background-image:url('./images/exterior-aerea.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('./images/exterior-atardecer.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('./images/exterior-pool.jpg')"></div>
+  <div class="hero-slide active" style="background-image:url('./images/recamara-jardin.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('./images/fachada-tarde.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('./images/interior-sala.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Pescadero · Baja California Sur</p>
@@ -706,7 +665,7 @@
 <!-- ARQUITECTURA -->
 <div class="arq">
   <div class="arq-img">
-    <img src="./images/exterior-aerea.jpg" alt="Salara exterior">
+    <img src="./images/exterior-pool.jpg" alt="Salara">
   </div>
   <div class="arq-text reveal">
     <span class="eyebrow">Casas de arena</span>
@@ -719,79 +678,54 @@
   </div>
 </div>
 
-<!-- GALERÍA -->
+<!-- GALERÍA ÚNICA -->
 <div class="grid-gallery">
-  <!-- Col 1: vertical xtall (ocupa las 3 filas) -->
+  <!-- Col 1: vertical — ocupa 3 filas -->
   <div class="gg-item xtall">
-    <img src="./images/corredor-techado.jpg" alt="Arquitectura" style="object-position: center center;">
+    <img src="./images/corredor-techado.jpg" alt="Arquitectura">
     <span class="gg-caption">Arquitectura</span>
   </div>
-  <!-- Col 2-3: horizontal wide arriba -->
+  <!-- Col 2: horizontal wide (cols 2-3) arriba -->
   <div class="gg-item wide">
-    <img src="./images/patio-cielo.jpg" alt="Salara">
+    <img src="./images/exterior-aerea.jpg" alt="Salara">
     <span class="gg-caption">Salara</span>
   </div>
-  <!-- Col 4: vertical tall (ocupa 2 filas) -->
+  <!-- Col 4: vertical — ocupa 2 filas -->
   <div class="gg-item tall">
-    <img src="./images/exterior-atardecer.jpg" alt="Atardecer" style="object-position: center top;">
-    <span class="gg-caption">Atardecer</span>
+    <img src="./images/terraza-cactus.jpg" alt="Terraza">
+    <span class="gg-caption">Terraza</span>
   </div>
-  <!-- Col 2: horizontal -->
+  <!-- Col 2 fila 2 -->
   <div class="gg-item">
     <img src="./images/comedor.jpg" alt="Interiores">
     <span class="gg-caption">Interiores</span>
   </div>
-  <!-- Col 3: horizontal -->
+  <!-- Col 3 fila 2 -->
   <div class="gg-item">
     <img src="./images/patio-arbol.jpg" alt="Jardín nativo">
     <span class="gg-caption">Jardín nativo</span>
   </div>
-  <!-- Col 2: horizontal -->
+  <!-- Col 4 fila 3 -->
   <div class="gg-item">
-    <img src="./images/fachada-tarde.jpg" alt="Fachada">
-    <span class="gg-caption">Fachada</span>
-  </div>
-  <!-- Col 3: horizontal -->
-  <div class="gg-item">
-    <img src="./images/recamara-jardin.jpg" alt="Recámara">
+    <img src="./images/recamara-principal.jpg" alt="Interiores">
     <span class="gg-caption">Recámara</span>
   </div>
+  <!-- Col 2 fila 3 -->
+  <div class="gg-item">
+    <img src="./images/exterior-atardecer.jpg" alt="Atardecer">
+    <span class="gg-caption">Atardecer</span>
+  </div>
+  <!-- Col 3 fila 3 -->
+  <div class="gg-item">
+    <img src="./images/cocina-01.jpg" alt="Cocina">
+    <span class="gg-caption">Cocina</span>
+  </div>
 </div>
-
-<!-- LIFESTYLE COLLAGE -->
-<section class="collage">
-  <div class="collage-header reveal">
-    <h2>Los días tienen<br><em>otro ritmo.</em></h2>
-    <p>Where sun soaked days meet kindhearted care and easy living. Una experiencia que ya sucede — cada día, para quienes ya son parte de Salara.</p>
-  </div>
-  <div class="collage-grid reveal">
-    <!-- Col 1: vertical tall (ocupa las 2 filas) -->
-    <div class="col-item tall">
-      <img src="./images/terraza-cactus.jpg" alt="Terraza" style="object-position: center center;">
-      <span class="col-label">Terraza</span>
-    </div>
-    <!-- Col 2: horizontal -->
-    <div class="col-item">
-      <img src="./images/patio-arbol.jpg" alt="Jardín">
-      <span class="col-label">Jardín nativo</span>
-    </div>
-    <!-- Col 3: vertical tall (ocupa las 2 filas) -->
-    <div class="col-item tall">
-      <img src="./images/recamara-principal.jpg" alt="Recámara" style="object-position: center top;">
-      <span class="col-label">Interiores</span>
-    </div>
-    <!-- Col 2 fila 2: horizontal -->
-    <div class="col-item">
-      <img src="./images/comedor.jpg" alt="Comedor">
-      <span class="col-label">Comedor</span>
-    </div>
-  </div>
-</section>
 
 <!-- RENTAL PROGRAM -->
 <div class="rental">
   <div class="rental-img">
-    <img src="./images/fachada-tarde.jpg" alt="Salara renta">
+    <img src="./images/patio-cielo.jpg" alt="Salara renta">
   </div>
   <div class="rental-text reveal">
     <span class="eyebrow" style="color:var(--sage-light);">Rental program</span>
@@ -818,7 +752,7 @@
     <!-- SALARA 06 -->
     <div class="listing reveal">
       <div class="listing-imgs">
-        <img src="./images/recamara-01.jpg" alt="Salara 06">
+        <img src="./images/recamara-02.jpg" alt="Salara 06">
         <span class="listing-badge">Disponible</span>
       </div>
       <div class="listing-body">
@@ -843,7 +777,7 @@
     <!-- SALARA 04 -->
     <div class="listing reveal">
       <div class="listing-imgs">
-        <img src="./images/exterior-pool-2.jpg" alt="Salara 04">
+        <img src="./images/cocina-02.jpg" alt="Salara 04">
         <span class="listing-badge">Disponible</span>
       </div>
       <div class="listing-body">
@@ -882,7 +816,7 @@
     </div>
   </div>
   <div class="ubic-img">
-    <img src="./images/patio-cielo.jpg" alt="Pescadero, BCS">
+    <img src="./images/exterior-pool-2.jpg" alt="Pescadero, BCS">
   </div>
 </div>
 
